@@ -52,26 +52,8 @@ A .NET Core ultra lightweight in-memory event bus implementation.
 3. Publish the event
 
 ```csharp
-    public class IndexModel : PageModel
-    {
-        private readonly IEventPublisher _eventPublisher;
-
-        public IndexModel(IEventPublisher eventPublisher)
-        {
-            _eventPublisher = eventPublisher;
-        }
-
-        [BindProperty]
-        public string Message { get; set; }
-
-        public async Task<IActionResult> OnPostAsync()
-        {
-            var @event = MessageSent.Create(Message);
-            await _eventPublisher.PublishEventAsync(@event);
-
-            return RedirectToPage();
-        }
-    }
+    var @event = MessageSent.Create("Hello world!");
+    await _eventPublisher.PublishEventAsync(@event);
 ```
 
 Any contributions or comments are welcome!
