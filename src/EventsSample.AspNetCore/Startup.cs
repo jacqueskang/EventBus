@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using EventsSample.AspNetCore.EventHandlers;
+using EventsSample.AspNetCore.Events;
+using JKang.Events;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,7 +23,12 @@ namespace EventsSample.AspNetCore
                 .AddMvc();
 
             services
-                .AddInMemoryEvents();
+                .AddMemoryCache();
+
+            services
+                .AddInMemoryEvents()
+                .AddScoped<IEventHandler<MessageSent>, MessageSentEventHandler>()
+                ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
