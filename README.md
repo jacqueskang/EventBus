@@ -32,14 +32,14 @@ A .NET Core ultra lightweight in-memory event bus implementation.
     {
         public Task HandleEventAsync(MessageSent @event)
         {
-			// consume the event here
+            // consume the event here
             return Task.CompletedTask;
         }
     }
 ```
 
 ```csharp
-	// Startup.cs
+    // Startup.cs
     public void ConfigureServices(IServiceCollection services)
     {
         services
