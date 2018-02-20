@@ -14,12 +14,7 @@ A .NET Core ultra lightweight in-memory event bus implementation.
 ```csharp
     public class MessageSent : IEvent
     {
-        public static MessageSent Create(string message)
-        {
-            return new MessageSent(Guid.NewGuid(), message);
-        }
-
-        private MessageSent(Guid eventId, string message)
+        public MessageSent(Guid eventId, string message)
         {
             EventId = eventId;
             Message = message;
@@ -30,7 +25,7 @@ A .NET Core ultra lightweight in-memory event bus implementation.
         public string Message { get; }
 ```
 
-2. Implement an event handler and register it IoC
+2. Implement one or multiple event handlers
 
 ```csharp
     public class MessageSentEventHandler : IEventHandler<MessageSent>
@@ -43,6 +38,8 @@ A .NET Core ultra lightweight in-memory event bus implementation.
     }
 ```
 
+3. register event handlers in IServiceCollection
+
 ```csharp
     // Startup.cs
     public void ConfigureServices(IServiceCollection services)
@@ -54,7 +51,7 @@ A .NET Core ultra lightweight in-memory event bus implementation.
     }
 ```
 
-3. Publish the event
+4. Publish the event
 
 ```csharp
     var @event = MessageSent.Create("Hello world!");
