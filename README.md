@@ -2,6 +2,11 @@
 
 A .NET Core ultra lightweight in-memory event bus implementation.
 
+## NuGet packages
+
+ - [JKang.Events.Abstractions](https://www.nuget.org/packages/JKang.Events.Abstractions/)
+ - [JKang.Events.InMemory](https://www.nuget.org/packages/JKang.Events.InMemory/)
+
 ## Sample:
 
 1. Create an event implementing IEvent interface
