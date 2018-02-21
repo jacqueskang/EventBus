@@ -1,11 +1,9 @@
-﻿using EventsSample.AspNetCore.Events;
-using JKang.Events;
+﻿using JKang.Events.Samples.InMemory.AspNetCore.Events;
 using Microsoft.Extensions.Caching.Memory;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace EventsSample.AspNetCore.EventHandlers
+namespace JKang.Events.Samples.InMemory.AspNetCore.EventHandlers
 {
     public class MessageSentEventHandler : IEventHandler<MessageSent>
     {

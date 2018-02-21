@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.Events.Abstractions", "JKang.Events.Abstractions\JKang.Events.Abstractions.csproj", "{B32C9E22-C892-4F8C-8E49-30CBA5B971C1}"
 EndProject
@@ -9,12 +9,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.Events.InMemory", "JK
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{8C1896E4-9A8F-4A76-B3D1-CCBB0A2F8037}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventsSample.AspNetCore", "EventsSample.AspNetCore\EventsSample.AspNetCore.csproj", "{F0688B6D-EEE6-4AA3-BEC3-F73DD1FC0DA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.Events.Samples.InMemory.AspNetCore", "EventsSample.AspNetCore\JKang.Events.Samples.InMemory.AspNetCore.csproj", "{F0688B6D-EEE6-4AA3-BEC3-F73DD1FC0DA0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C9D1DF75-9F6D-4201-AC2C-BA95E3A72C9A}"
 	ProjectSection(SolutionItems) = preProject
 		..\README.md = ..\README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JKang.Events.RabbitMq", "JKang.Events.RabbitMq\JKang.Events.RabbitMq.csproj", "{ADDAFEB3-047F-45B3-B039-3C3EDF4105DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JKang.Events.Samples.RabbitMq.Publisher", "JKang.Events.Samples.RabbitMq.AspNetCore\JKang.Events.Samples.RabbitMq.Publisher.csproj", "{65972265-E68B-46E1-8F04-91FA9216AA27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JKang.Events.Samples.RabbitMq.Subscriber", "JKang.Events.Samples.RabbitMq.Subscriber\JKang.Events.Samples.RabbitMq.Subscriber.csproj", "{F6309131-642C-4D68-BFA2-33A04ACC4B2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,12 +40,26 @@ Global
 		{F0688B6D-EEE6-4AA3-BEC3-F73DD1FC0DA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0688B6D-EEE6-4AA3-BEC3-F73DD1FC0DA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0688B6D-EEE6-4AA3-BEC3-F73DD1FC0DA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADDAFEB3-047F-45B3-B039-3C3EDF4105DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADDAFEB3-047F-45B3-B039-3C3EDF4105DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADDAFEB3-047F-45B3-B039-3C3EDF4105DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADDAFEB3-047F-45B3-B039-3C3EDF4105DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65972265-E68B-46E1-8F04-91FA9216AA27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65972265-E68B-46E1-8F04-91FA9216AA27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65972265-E68B-46E1-8F04-91FA9216AA27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65972265-E68B-46E1-8F04-91FA9216AA27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6309131-642C-4D68-BFA2-33A04ACC4B2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6309131-642C-4D68-BFA2-33A04ACC4B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6309131-642C-4D68-BFA2-33A04ACC4B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6309131-642C-4D68-BFA2-33A04ACC4B2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F0688B6D-EEE6-4AA3-BEC3-F73DD1FC0DA0} = {8C1896E4-9A8F-4A76-B3D1-CCBB0A2F8037}
+		{65972265-E68B-46E1-8F04-91FA9216AA27} = {8C1896E4-9A8F-4A76-B3D1-CCBB0A2F8037}
+		{F6309131-642C-4D68-BFA2-33A04ACC4B2C} = {8C1896E4-9A8F-4A76-B3D1-CCBB0A2F8037}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D9478378-E22B-477A-87E9-C668E0620F58}

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace JKang.Events.Samples.InMemory.AspNetCore
+namespace JKang.Events.Samples.RabbitMq.AspNetCore
 {
     public class Program
     {

@@ -1,5 +1,4 @@
-﻿using JKang.Events.Samples.InMemory.AspNetCore.Events;
-using JKang.Events;
+﻿using JKang.Events.Samples.RabbitMq.AspNetCore.Events;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Caching.Memory;
