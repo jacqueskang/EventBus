@@ -3,7 +3,7 @@ using JKang.Events;
 
 namespace JKang.Events.Samples.RabbitMq.AspNetCore.Events
 {
-    public class MessageSent : IEvent
+    public class MessageSent
     {
         public static MessageSent Create(string message)
         {

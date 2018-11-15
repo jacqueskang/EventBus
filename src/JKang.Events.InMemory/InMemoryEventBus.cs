@@ -15,7 +15,7 @@ namespace JKang.Events.InMemory
             _serviceProvider = serviceProvider;
         }
 
-        public async Task PublishEventAsync(IEvent @event)
+        public async Task PublishEventAsync<TEvent>(TEvent @event)
         {
             using (IServiceScope scope = _serviceProvider.CreateScope())
             {
@@ -27,8 +27,8 @@ namespace JKang.Events.InMemory
                 {
                     object result = handlerType
                         .GetTypeInfo()
-                        .GetDeclaredMethod(nameof(IEventHandler<IEvent>.HandleEventAsync))
-                        .Invoke(handler, new[] { @event });
+                        .GetDeclaredMethod(nameof(IEventHandler<TEvent>.HandleEventAsync))
+                        .Invoke(handler, new object[] { @event });
                     await (Task)result;
                 }
             }

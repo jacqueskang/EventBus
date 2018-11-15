@@ -17,7 +17,7 @@ namespace JKang.Events.RabbitMq
             };
         }
 
-        public async Task PublishEventAsync(IEvent @event)
+        public async Task PublishEventAsync<TEvent>(TEvent @event)
         {
             await Task.Run(() =>
             {

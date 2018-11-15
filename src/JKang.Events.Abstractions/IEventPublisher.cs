@@ -4,6 +4,6 @@ namespace JKang.Events
 {
     public interface IEventPublisher
     {
-        Task PublishEventAsync(IEvent @event);
+        Task PublishEventAsync<TEvent>(TEvent @event);
     }
 }

@@ -1,6 +1,5 @@
 ﻿using JKang.Events.Samples.InMemory.AspNetCore.EventHandlers;
 using JKang.Events.Samples.InMemory.AspNetCore.Events;
-using JKang.Events;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
