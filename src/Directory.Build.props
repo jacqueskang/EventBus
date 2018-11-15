@@ -4,5 +4,7 @@
    <Authors>Jacques Kang</Authors>
    <Product>JKang.EventBus</Product>
    <PackageTags>eventbus</PackageTags>
+   <PackageProjectUrl>https://github.com/jacqueskang/EventBus</PackageProjectUrl>
+   <Description>.NET Core ultra lightweight event bus implementation</Description>
  </PropertyGroup>
 </Project>
