@@ -4,35 +4,29 @@ A .NET Core ultra lightweight in-memory event bus implementation.
 
 ## NuGet packages
 
- - [JKang.Events.Abstractions](https://www.nuget.org/packages/JKang.Events.Abstractions/)
- - [JKang.Events.InMemory](https://www.nuget.org/packages/JKang.Events.InMemory/)
+ - [JKang.Events](https://www.nuget.org/packages/JKang.Events/)
 
 ## Sample:
 
-1. Create an event implementing IEvent interface
+1. Create an event class
 
 ```csharp
-    public class MessageSent : IEvent
+    public class MessageSent
     {
-        public MessageSent(Guid eventId, string message)
-        {
-            EventId = eventId;
-            Message = message;
-        }
-
-        public Guid EventId { get; }
+        public MessageSent(string message) => Message = message;
 
         public string Message { get; }
+    }
 ```
 
-2. Implement one or multiple event handlers
+2. Implement as many event handlers as you like
 
 ```csharp
     public class MessageSentEventHandler : IEventHandler<MessageSent>
     {
         public Task HandleEventAsync(MessageSent @event)
         {
-            // consume the event here
+			Console.WriteLine(@event.Message)
             return Task.CompletedTask;
         }
     }
@@ -45,17 +39,17 @@ A .NET Core ultra lightweight in-memory event bus implementation.
     public void ConfigureServices(IServiceCollection services)
     {
         services
-            .AddInMemoryEvents()
-            .AddScoped<IEventHandler<MessageSent>, MessageSentEventHandler>()
-            ;
+            .AddEventBus()
+            .UseInMemory()
+            .AddEventHandler<MessageSent, MessageSentEventHandler>()
+        ;
     }
 ```
 
 4. Publish the event
 
 ```csharp
-    var @event = MessageSent.Create("Hello world!");
-    await _eventPublisher.PublishEventAsync(@event);
+    await _eventPublisher.PublishEventAsync(new MessageSent("Something happened!"));
 ```
 
 Any contributions or comments are welcome!

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JKang.Events.Abstractions\JKang.EventBus.Abstractions.csproj" />
+    <ProjectReference Include="..\JKang.Events.InMemory\JKang.EventBus.InMemory.csproj" />
+  </ItemGroup>
+
+</Project>

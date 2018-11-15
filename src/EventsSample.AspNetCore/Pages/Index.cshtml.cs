@@ -33,8 +33,7 @@ namespace JKang.Events.Samples.InMemory.AspNetCore.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            var @event = MessageSent.Create(Message);
-            await _eventPublisher.PublishEventAsync(@event);
+            await _eventPublisher.PublishEventAsync(new MessageSent(Message));
 
             return RedirectToPage();
         }

@@ -15,7 +15,8 @@ namespace JKang.Events.Samples.RabbitMq.AspNetCore
                 .AddMvc();
 
             services
-                .AddRabbitMqEvents()
+                .AddEventBus()
+                .UseRabbitMq()
                 ;
         }
 

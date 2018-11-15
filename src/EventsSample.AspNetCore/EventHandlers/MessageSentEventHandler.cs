@@ -22,7 +22,7 @@ namespace JKang.Events.Samples.InMemory.AspNetCore.EventHandlers
             }
             else
             {
-                messages = new List<string>();
+                messages = new List<string> { @event.Message };
             }
             _cache.Set("messages", messages);
 

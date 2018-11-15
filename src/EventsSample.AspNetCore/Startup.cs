@@ -25,8 +25,9 @@ namespace JKang.Events.Samples.InMemory.AspNetCore
                 .AddMemoryCache();
 
             services
-                .AddInMemoryEvents()
-                .AddScoped<IEventHandler<MessageSent>, MessageSentEventHandler>()
+                .AddEventBus()
+                .UseInMemory()
+                .AddEventHandler<MessageSent, MessageSentEventHandler>()
                 ;
         }
 
