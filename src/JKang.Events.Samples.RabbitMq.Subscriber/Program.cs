@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JKang.Events.Samples.RabbitMq.Subscriber
+namespace JKang.EventBus.Samples.RabbitMq.Subscriber
 {
     class Program
     {

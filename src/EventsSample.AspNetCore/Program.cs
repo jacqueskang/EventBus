@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace JKang.Events.Samples.InMemory.AspNetCore
+namespace JKang.EventBus.Samples.InMemory.AspNetCore
 {
     public class Program
     {

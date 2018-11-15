@@ -1,7 +1,7 @@
 ﻿using System;
-using JKang.Events;
+using JKang.EventBus;
 
-namespace JKang.Events.Samples.RabbitMq.AspNetCore.Events
+namespace JKang.EventBus.Samples.RabbitMq.AspNetCore.Events
 {
     public class MessageSent
     {

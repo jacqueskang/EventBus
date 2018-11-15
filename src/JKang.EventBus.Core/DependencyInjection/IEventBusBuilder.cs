@@ -1,4 +1,4 @@
-﻿using JKang.Events;
+﻿using JKang.EventBus;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

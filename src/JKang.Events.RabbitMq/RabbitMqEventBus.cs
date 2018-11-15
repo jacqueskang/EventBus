@@ -3,7 +3,7 @@ using RabbitMQ.Client;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JKang.Events.RabbitMq
+namespace JKang.EventBus.RabbitMq
 {
     public class RabbitMqEventBus : IEventPublisher
     {

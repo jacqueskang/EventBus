@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace JKang.Events.InMemory
+namespace JKang.EventBus.InMemory
 {
     public class InMemoryEventBus : IEventPublisher
     {

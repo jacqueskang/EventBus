@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace JKang.Events.Samples.RabbitMq.AspNetCore
+namespace JKang.EventBus.Samples.RabbitMq.AspNetCore
 {
     public class Startup
     {

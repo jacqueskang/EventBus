@@ -1,10 +1,10 @@
-# JKang.Events
+# JKang.EventBus
 
 A .NET Core ultra lightweight in-memory event bus implementation.
 
 ## NuGet packages
 
- - [JKang.Events](https://www.nuget.org/packages/JKang.Events/)
+ - [JKang.EventBus](https://www.nuget.org/packages/JKang.EventBus/)
 
 ## Sample:
 

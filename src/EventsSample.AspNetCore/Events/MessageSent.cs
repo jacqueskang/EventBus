@@ -1,4 +1,4 @@
-﻿namespace JKang.Events.Samples.InMemory.AspNetCore.Events
+﻿namespace JKang.EventBus.Samples.InMemory.AspNetCore.Events
 {
     public class MessageSent
     {

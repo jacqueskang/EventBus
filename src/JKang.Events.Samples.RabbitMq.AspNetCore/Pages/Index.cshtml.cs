@@ -1,11 +1,11 @@
-﻿using JKang.Events.Samples.RabbitMq.AspNetCore.Events;
+﻿using JKang.EventBus.Samples.RabbitMq.AspNetCore.Events;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Caching.Memory;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace JKang.Events.Samples.InMemory.AspNetCore.Pages
+namespace JKang.EventBus.Samples.InMemory.AspNetCore.Pages
 {
     public class IndexModel : PageModel
     {

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace JKang.Events
+namespace JKang.EventBus
 {
     public interface IEventHandler<TEvent>
     {

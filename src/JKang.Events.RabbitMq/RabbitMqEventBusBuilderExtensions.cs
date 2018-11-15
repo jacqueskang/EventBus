@@ -1,6 +1,6 @@
 ﻿using JKang.EventBus.DependencyInjection;
-using JKang.Events;
-using JKang.Events.RabbitMq;
+using JKang.EventBus;
+using JKang.EventBus.RabbitMq;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

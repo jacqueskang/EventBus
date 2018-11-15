@@ -1,5 +1,5 @@
-﻿using JKang.Events;
-using JKang.Events.InMemory;
+﻿using JKang.EventBus;
+using JKang.EventBus.InMemory;
 using System;
 
 namespace Microsoft.Extensions.DependencyInjection

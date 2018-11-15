@@ -1,11 +1,11 @@
-﻿using JKang.Events.Samples.InMemory.AspNetCore.EventHandlers;
-using JKang.Events.Samples.InMemory.AspNetCore.Events;
+﻿using JKang.EventBus.Samples.InMemory.AspNetCore.EventHandlers;
+using JKang.EventBus.Samples.InMemory.AspNetCore.Events;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace JKang.Events.Samples.InMemory.AspNetCore
+namespace JKang.EventBus.Samples.InMemory.AspNetCore
 {
     public class Startup
     {
