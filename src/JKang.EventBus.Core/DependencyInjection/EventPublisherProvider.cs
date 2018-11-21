@@ -21,10 +21,7 @@ namespace JKang.EventBus.DependencyInjection
 
         public IEnumerable<IEventPublisher> GetEventPublishers()
         {
-            using (IServiceScope scope = _serviceProvider.CreateScope())
-            {
-                return _eventPublishers.Types.Select(t => (IEventPublisher)scope.ServiceProvider.GetService(t));
-            }
+            return _eventPublishers.Types.Select(t => (IEventPublisher)_serviceProvider.GetService(t));
         }
     }
 }

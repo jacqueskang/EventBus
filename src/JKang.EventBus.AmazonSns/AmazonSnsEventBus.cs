@@ -2,6 +2,8 @@
 using Amazon.SimpleNotificationService;
 using Amazon.SimpleNotificationService.Model;
 using Microsoft.Extensions.Options;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace JKang.EventBus.AmazonSns
@@ -23,7 +25,15 @@ namespace JKang.EventBus.AmazonSns
         {
             var endpoint = RegionEndpoint.GetBySystemName(_options.Value.Region);
             var client = new AmazonSimpleNotificationServiceClient(endpoint);
-            string topicName = typeof(TEvent).FullName.ToLower().Replace('.', '-');
+
+            Type eventType = typeof(TEvent);
+            AmazonSnsTopicAttribute attr = eventType
+                .GetCustomAttributes(typeof(AmazonSnsTopicAttribute), inherit: false)
+                .OfType<AmazonSnsTopicAttribute>()
+                .FirstOrDefault();
+            string topicName = attr == null
+                ? eventType.FullName.ToLower().Replace('.', '-')
+                : attr.Name;
             var createTopicRequest = new CreateTopicRequest(topicName);
             CreateTopicResponse createTopicResponse = await client.CreateTopicAsync(createTopicRequest);
             string topicArn = createTopicResponse.TopicArn;

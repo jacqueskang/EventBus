@@ -1,5 +1,4 @@
-﻿using JKang.EventBus;
-using JKang.EventBus.InMemory;
+﻿using JKang.EventBus.InMemory;
 using JKang.EventBus.Serialization;
 using System;
 
@@ -14,11 +13,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 throw new ArgumentNullException(nameof(builder));
             }
 
-            builder.Services
-                .AddSingleton<IEventPublisher, InMemoryEventBus>()
-                ;
-
-            return builder;
+            return builder.AddEventPublisher<InMemoryEventBus>();
         }
 
         public static IEventBusBuilder UseJsonSerializer(this IEventBusBuilder builder)
