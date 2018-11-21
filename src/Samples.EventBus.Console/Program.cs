@@ -13,9 +13,12 @@ namespace Samples.EventBus.ConsoleApp
             services.AddEventBus(builder =>
             {
                 builder
-                    .AddInMemoryEventBus()
-                    .AddEventHandler<MyEventHandler>()
-                    .AddAmazonSnsEventPublisher(x => x.Region = "eu-west-3")
+                    .AddInMemoryEventBus(subscriber =>
+                    {
+                        subscriber.Subscribe<MyEvent, MyEventHandler>();
+                        //subscriber.SubscribeAllHandledEvents<MyEventHandler>(); // other way
+                    })
+                    .PublishToAmazonSns(x => x.Region = "eu-west-3")
                     ;
             });
 

@@ -1,18 +1,17 @@
 # JKang.EventBus
 
-.NET Core event bus implementation supporting combination of the following channels:
- * In-memory event dispatching
+.NET Core event bus implementation supporting:
+ * In-memory event dispatching (publishing and subscription)
  * publishing event to Amazon SNS
 
 ## NuGet packages
 
  - [JKang.EventBus](https://www.nuget.org/packages/JKang.EventBus/)
- - [JKang.EventBus.AmazonSns](https://www.nuget.org/packages/JKang.EventBus.AmazonSns/)
 
 ## Quick start:
 
 1. Create a console application with the following NuGet packages installed:
-```shell
+```console
 > Install-Package Microsoft.Extensions.DependencyInjection
 > Install-Package JKang.EventBus
 ```
@@ -26,7 +25,7 @@
     }
 ```
 
-3. Optionally implement an handler to subscribe to the event published from memory bus
+3. Optionally implement one or multiple handlers subscribing to the event
 
 ```csharp
     class MyEventHandler : IEventHandler<MyEvent>
@@ -48,10 +47,11 @@
 
         services.AddEventBus(builder =>
         {
-            builder
-                .AddInMemoryEventBus()
-                .AddEventHandler<MyEventHandler>()
-                ;
+            builder.AddInMemoryEventBus(subscriber =>
+            {
+                subscriber.Subscribe<MyEvent, MyEventHandler>();
+                //subscriber.SubscribeAllHandledEvents<MyEventHandler>(); // other way
+            });
         });
     }
 ```
@@ -70,27 +70,25 @@
 
 ## Publish event to Amazon Simple Notification Service (SNS)
 
-1. Install NuGet package **JKang.EventBus.AmazonSns**
+1. Install NuGet package [JKang.EventBus.AmazonSns](https://www.nuget.org/packages/JKang.EventBus.AmazonSns/)
 
-2. Configure the event bus as following:
+2. Configure publishing events to AWS SNS
+
 ```csharp
         services.AddEventBus(builder =>
         {
             builder
-                .AddAmazonSnsEventPublisher(x => x.Region = "eu-west-3")
-                ;
+                //.AddInMemoryEventBus() // uncomment to keep using in-memory event bus in the same time
+				.PublishToAmazonSns(x => x.Region = "eu-west-3");
         });
 ```
 
-It's possible to publish events to multiple event buses
+3. Optionally It's possible to customize AWS SNS topic name using annotation
+
 ```csharp
-        services.AddEventBus(builder =>
-        {
-            builder
-                .AddInMemoryEventBus()
-                .AddAmazonSnsEventPublisher(x => x.Region = "eu-west-3")
-                ;
-        });
+    [AmazonSnsTopic("my-event")]
+    public class MyEvent
+    { }
 ```
 
 Any contributions or comments are welcome!

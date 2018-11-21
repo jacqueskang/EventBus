@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace JKang.EventBus.AmazonSns
 {
-    public class AmazonSnsEventBus : IEventPublisher
+    public class AmazonSnsEventPublisher : IEventPublisher
     {
         private readonly IEventSerializer _eventSerializer;
-        private readonly IOptions<AmazonSnsEventBusOptions> _options;
+        private readonly IOptions<AmazonSnsEventPublisherOptions> _options;
 
-        public AmazonSnsEventBus(
+        public AmazonSnsEventPublisher(
             IEventSerializer eventSerializer,
-            IOptions<AmazonSnsEventBusOptions> options)
+            IOptions<AmazonSnsEventPublisherOptions> options)
         {
             _eventSerializer = eventSerializer;
             _options = options;

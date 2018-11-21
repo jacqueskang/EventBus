@@ -1,5 +1,4 @@
 ﻿using JKang.EventBus.Samples.InMemory.AspNetCore.EventHandlers;
-using JKang.EventBus.Samples.InMemory.AspNetCore.Events;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -28,10 +27,10 @@ namespace JKang.EventBus.Samples.InMemory.AspNetCore
                 .AddEventBus(builder =>
                 {
                     builder
-                        .AddInMemoryEventBus()
-                        .AddAmazonSnsEventPublisher(x => x.Region = "eu-west-3")
-                        .AddEventHandler<MessageSentEventHandler>()
-                        ;
+                        .AddInMemoryEventBus(subscriber =>
+                        {
+                            subscriber.SubscribeAllHandledEvents<MessageSentEventHandler>();
+                        });
                 });
         }
 

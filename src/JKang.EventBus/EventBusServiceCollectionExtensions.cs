@@ -15,7 +15,6 @@ namespace Microsoft.Extensions.DependencyInjection
 
             IEventBusBuilder builder = new EventBusBuilder(services)
                 .UseJsonSerializer()
-                .AddInMemoryEventBus()
                 ;
 
             setupAction?.Invoke(builder);

@@ -1,8 +1,5 @@
 ﻿using JKang.EventBus.MultiChannel;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace JKang.EventBus.DependencyInjection
 {
@@ -32,30 +29,6 @@ namespace JKang.EventBus.DependencyInjection
         {
             _register.Add<TEventPublisher>();
             Services.AddSingleton<TEventPublisher>();
-            return this;
-        }
-
-        public IEventBusBuilder AddEventHandler<TEvent, TEventHandler>()
-            where TEventHandler : class, IEventHandler<TEvent>
-        {
-            Services.AddScoped<IEventHandler<TEvent>, TEventHandler>();
-            return this;
-        }
-
-        public IEventBusBuilder AddEventHandler<TEventHandler>()
-            where TEventHandler : class
-        {
-            Type implementationType = typeof(TEventHandler);
-            IEnumerable<Type> serviceTypes = implementationType
-                .GetInterfaces()
-                .Where(i => i.IsGenericType)
-                .Where(i => i.GetGenericTypeDefinition() == typeof(IEventHandler<>));
-
-            foreach (Type serviceType in serviceTypes)
-            {
-                Services.AddScoped(serviceType, implementationType);
-            }
-
             return this;
         }
     }
