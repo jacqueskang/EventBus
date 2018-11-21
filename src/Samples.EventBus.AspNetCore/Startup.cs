@@ -30,7 +30,7 @@ namespace JKang.EventBus.Samples.InMemory.AspNetCore
                     builder
                         .AddInMemoryEventBus()
                         .AddAmazonSnsEventPublisher(x => x.Region = "eu-west-3")
-                        .AddEventHandler<MessageSent, MessageSentEventHandler>()
+                        .AddEventHandler<MessageSentEventHandler>()
                         ;
                 });
         }
