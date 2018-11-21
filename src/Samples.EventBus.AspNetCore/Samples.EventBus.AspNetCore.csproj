@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JKang.EventBus.AmazonSns\JKang.EventBus.AmazonSns.csproj" />
     <ProjectReference Include="..\JKang.EventBus\JKang.EventBus.csproj" />
   </ItemGroup>
 

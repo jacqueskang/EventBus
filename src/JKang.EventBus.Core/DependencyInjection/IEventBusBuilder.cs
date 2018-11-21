@@ -6,6 +6,9 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         IServiceCollection Services { get; }
 
+        IEventBusBuilder UseSerializer<TEventSerializer>()
+            where TEventSerializer : class, IEventSerializer;
+
         IEventBusBuilder AddEventHandler<TEvent, TEventHandler>()
             where TEventHandler : class, IEventHandler<TEvent>;
     }

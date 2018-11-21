@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus.Core", "JKan
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus", "JKang.EventBus\JKang.EventBus.csproj", "{36024674-F10A-4A44-BC4E-24EBAA0D0CFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JKang.EventBus.AmazonSns", "JKang.EventBus.AmazonSns\JKang.EventBus.AmazonSns.csproj", "{C46D4B8E-4AAA-4889-A60A-89A9E9E10F50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{36024674-F10A-4A44-BC4E-24EBAA0D0CFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36024674-F10A-4A44-BC4E-24EBAA0D0CFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36024674-F10A-4A44-BC4E-24EBAA0D0CFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46D4B8E-4AAA-4889-A60A-89A9E9E10F50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46D4B8E-4AAA-4889-A60A-89A9E9E10F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46D4B8E-4AAA-4889-A60A-89A9E9E10F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46D4B8E-4AAA-4889-A60A-89A9E9E10F50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

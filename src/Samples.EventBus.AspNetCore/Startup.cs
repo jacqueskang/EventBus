@@ -25,9 +25,13 @@ namespace JKang.EventBus.Samples.InMemory.AspNetCore
                 .AddMemoryCache();
 
             services
-                .AddEventBus()
-                .UseInMemory()
-                .AddEventHandler<MessageSent, MessageSentEventHandler>()
+                .AddEventBus(builder =>
+                {
+                    builder
+                        .UseAmazonSns(x => x.Region = "eu-west-3")
+                        .AddEventHandler<MessageSent, MessageSentEventHandler>()
+                        ;
+                })
                 ;
         }
 

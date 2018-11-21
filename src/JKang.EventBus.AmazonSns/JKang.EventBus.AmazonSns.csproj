@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.3.3.2" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JKang.EventBus.Abstractions\JKang.EventBus.Abstractions.csproj" />
+    <ProjectReference Include="..\JKang.EventBus.Core\JKang.EventBus.Core.csproj" />
+  </ItemGroup>
+
+</Project>
