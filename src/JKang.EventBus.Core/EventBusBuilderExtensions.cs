@@ -1,5 +1,6 @@
 ﻿using JKang.EventBus;
 using JKang.EventBus.InMemory;
+using JKang.EventBus.Serialization;
 using System;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -18,6 +19,16 @@ namespace Microsoft.Extensions.DependencyInjection
                 ;
 
             return builder;
+        }
+
+        public static IEventBusBuilder UseJsonSerializer(this IEventBusBuilder builder)
+        {
+            if (builder == null)
+            {
+                throw new ArgumentNullException(nameof(builder));
+            }
+
+            return builder.UseSerializer<JsonEventSerializer>();
         }
     }
 }
