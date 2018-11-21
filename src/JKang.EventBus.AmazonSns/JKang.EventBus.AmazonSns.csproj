@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JKang.EventBus.Abstractions\JKang.EventBus.Abstractions.csproj" />
-    <ProjectReference Include="..\JKang.EventBus.Core\JKang.EventBus.Core.csproj" />
   </ItemGroup>
 
 </Project>
