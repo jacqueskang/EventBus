@@ -1,5 +1,4 @@
 ﻿using JKang.EventBus.Samples.InMemory.AspNetCore.EventHandlers;
-using JKang.EventBus.Samples.InMemory.AspNetCore.Events;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,10 +24,14 @@ namespace JKang.EventBus.Samples.InMemory.AspNetCore
                 .AddMemoryCache();
 
             services
-                .AddEventBus()
-                .UseInMemory()
-                .AddEventHandler<MessageSent, MessageSentEventHandler>()
-                ;
+                .AddEventBus(builder =>
+                {
+                    builder
+                        .AddInMemoryEventBus(subscriber =>
+                        {
+                            subscriber.SubscribeAllHandledEvents<MessageSentEventHandler>();
+                        });
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

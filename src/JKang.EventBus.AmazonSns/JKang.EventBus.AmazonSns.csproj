@@ -1,17 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>JKang.EventBus</RootNamespace>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.3.3.2" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\JKang.EventBus.Abstractions\JKang.EventBus.Abstractions.csproj" />
   </ItemGroup>
-  
+
 </Project>
