@@ -6,6 +6,6 @@ namespace JKang.EventBus.AmazonSns
 {
     public class AmazonSnsEventBusOptions
     {
-        public string Region { get; set; }
+        public string Region { get; set; } = "eu-west-1";
     }
 }

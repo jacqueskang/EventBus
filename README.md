@@ -7,55 +7,90 @@
 ## NuGet packages
 
  - [JKang.EventBus](https://www.nuget.org/packages/JKang.EventBus/)
+ - [JKang.EventBus.AmazonSns](https://www.nuget.org/packages/JKang.EventBus.AmazonSns/)
 
-## Sample:
+## Quick start:
 
-1. Create an event class
+1. Create a console application with the following NuGet packages installed:
+```shell
+> Install-Package Microsoft.Extensions.DependencyInjection
+> Install-Package JKang.EventBus
+```
+
+ 2. Create an event class
 
 ```csharp
-    public class MessageSent
+    public class MyEvent
     {
-        public MessageSent(string message) => Message = message;
-
-        public string Message { get; }
+        public string Message { get; set; }
     }
 ```
 
-2. Implement event handlers (at the time being only receives events from in-memory event bus)
+3. Optionally implement an handler to subscribe to the event published from memory bus
 
 ```csharp
-    public class MessageSentEventHandler : IEventHandler<MessageSent>
+    class MyEventHandler : IEventHandler<MyEvent>
     {
-        public Task HandleEventAsync(MessageSent @event)
+        public Task HandleEventAsync(MyEvent @event)
         {
-			Console.WriteLine(@event.Message)
+            Console.WriteLine($"Received message '{@event.Message}'");
             return Task.CompletedTask;
         }
     }
 ```
 
-3. register event handlers in IServiceCollection
+4. Configure and register event bus using Dependency Injection
 
 ```csharp
-    // Startup.cs
-    public void ConfigureServices(IServiceCollection services)
+    static void Main(string[] args)
     {
-        services
-            .AddEventBus(builder =>
-            {
-                builder
-                    .AddInMemoryEventBus()
-                    .AddAmazonSnsEventPublisher(x => x.Region = "eu-west-3")
-                    .AddEventHandler<MessageSent, MessageSentEventHandler>()
-                    ;
-            });
+        IServiceCollection services = new ServiceCollection();
+
+        services.AddEventBus(builder =>
+        {
+            builder
+                .AddInMemoryEventBus()
+                .AddEventHandler<MyEventHandler>()
+                ;
+        });
     }
 ```
 
-4. Publish the event
+5. Publish an event
 
 ```csharp
-    await _eventPublisher.PublishEventAsync(new MessageSent("Something happened!"));
+    IServiceProvider serviceProvider = services.BuildServiceProvider();
+    using (IServiceScope scope = serviceProvider.CreateScope())
+    {
+        IEventPublisher eventPublisher = scope.ServiceProvider.GetRequiredService<IEventPublisher>();
+        eventPublisher.PublishEventAsync(new MyEvent { Message = "Hello, event bus!" }).Wait();
+    }
+```
+
+
+## Publish event to Amazon Simple Notification Service (SNS)
+
+1. Install NuGet package **JKang.EventBus.AmazonSns**
+
+2. Configure the event bus as following:
+```csharp
+        services.AddEventBus(builder =>
+        {
+            builder
+                .AddAmazonSnsEventPublisher(x => x.Region = "eu-west-3")
+                ;
+        });
+```
+
+It's possible to publish events to multiple event buses
+```csharp
+        services.AddEventBus(builder =>
+        {
+            builder
+                .AddInMemoryEventBus()
+                .AddAmazonSnsEventPublisher(x => x.Region = "eu-west-3")
+                ;
+        });
 ```
 
 Any contributions or comments are welcome!
