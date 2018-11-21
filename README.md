@@ -1,6 +1,8 @@
 # JKang.EventBus
 
-A .NET Core ultra lightweight in-memory event bus implementation.
+.NET Core event bus implementation supporting combination of the following channels:
+ * In-memory event dispatching
+ * publishing event to Amazon SNS
 
 ## NuGet packages
 
@@ -19,7 +21,7 @@ A .NET Core ultra lightweight in-memory event bus implementation.
     }
 ```
 
-2. Implement as many event handlers as you like
+2. Implement event handlers (at the time being only receives events from in-memory event bus)
 
 ```csharp
     public class MessageSentEventHandler : IEventHandler<MessageSent>
@@ -39,10 +41,14 @@ A .NET Core ultra lightweight in-memory event bus implementation.
     public void ConfigureServices(IServiceCollection services)
     {
         services
-            .AddEventBus()
-            .UseInMemory()
-            .AddEventHandler<MessageSent, MessageSentEventHandler>()
-        ;
+            .AddEventBus(builder =>
+            {
+                builder
+                    .AddInMemoryEventBus()
+                    .AddAmazonSnsEventPublisher(x => x.Region = "eu-west-3")
+                    .AddEventHandler<MessageSent, MessageSentEventHandler>()
+                    ;
+            });
     }
 ```
 

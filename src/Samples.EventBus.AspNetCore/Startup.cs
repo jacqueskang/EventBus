@@ -32,8 +32,7 @@ namespace JKang.EventBus.Samples.InMemory.AspNetCore
                         .AddAmazonSnsEventPublisher(x => x.Region = "eu-west-3")
                         .AddEventHandler<MessageSent, MessageSentEventHandler>()
                         ;
-                })
-                ;
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
