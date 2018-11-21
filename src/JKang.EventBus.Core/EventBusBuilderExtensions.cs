@@ -4,9 +4,9 @@ using System;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-    public static class InMemoryEventBusBuilderExtensions
+    public static class EventBusBuilderExtensions
     {
-        public static IEventBusBuilder UseInMemory(this IEventBusBuilder builder)
+        public static IEventBusBuilder AddInMemoryEventBus(this IEventBusBuilder builder)
         {
             if (builder == null)
             {

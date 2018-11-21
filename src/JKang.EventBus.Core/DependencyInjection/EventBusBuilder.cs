@@ -1,13 +1,18 @@
-﻿using JKang.EventBus.Serialization;
+﻿using JKang.EventBus.MultiChannel;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace JKang.EventBus.DependencyInjection
 {
     public class EventBusBuilder : IEventBusBuilder
     {
+        private readonly EventPublisherRegister _register = new EventPublisherRegister();
+
         public EventBusBuilder(IServiceCollection services)
         {
-            Services = services;
+            Services = services
+                .AddSingleton(_register)
+                .AddSingleton<IEventPublisherProvider, EventPublisherProvider>()
+                .AddSingleton<IEventPublisher, MasterEventBus>();
         }
 
         public IServiceCollection Services { get; }
@@ -15,16 +20,22 @@ namespace JKang.EventBus.DependencyInjection
         public IEventBusBuilder UseSerializer<TEventSerializer>()
             where TEventSerializer : class, IEventSerializer
         {
-            Services
-                .AddSingleton<IEventSerializer, TEventSerializer>();
+            Services.AddSingleton<IEventSerializer, TEventSerializer>();
             return this;
         }
 
-        IEventBusBuilder IEventBusBuilder.AddEventHandler<TEvent, TEventHandler>()
+        public IEventBusBuilder AddEventPublisher<TEventPublisher>()
+            where TEventPublisher : class, IEventPublisher
         {
-            Services
-                .AddScoped<IEventHandler<TEvent>, TEventHandler>()
-                ;
+            _register.Add<TEventPublisher>();
+            Services.AddSingleton<TEventPublisher>();
+            return this;
+        }
+
+        public IEventBusBuilder AddEventHandler<TEvent, TEventHandler>()
+            where TEventHandler : class, IEventHandler<TEvent>
+        {
+            Services.AddScoped<IEventHandler<TEvent>, TEventHandler>();
             return this;
         }
     }

@@ -11,5 +11,8 @@ namespace Microsoft.Extensions.DependencyInjection
 
         IEventBusBuilder AddEventHandler<TEvent, TEventHandler>()
             where TEventHandler : class, IEventHandler<TEvent>;
+
+        IEventBusBuilder AddEventPublisher<TEventPublisher>()
+            where TEventPublisher : class, IEventPublisher;
     }
 }

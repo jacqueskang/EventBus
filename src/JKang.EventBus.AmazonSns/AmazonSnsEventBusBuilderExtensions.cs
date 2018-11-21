@@ -6,14 +6,15 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class AmazonSnsEventBusBuilderExtensions
     {
-        public static IEventBusBuilder UseAmazonSns(this IEventBusBuilder builder, 
+        public static IEventBusBuilder AddAmazonSnsEventPublisher(this IEventBusBuilder builder,
             Action<AmazonSnsEventBusOptions> setupActions)
         {
             builder.Services
-                .AddSingleton<IEventPublisher, AmazonSnsEventBus>()
                 .Configure(setupActions)
                 ;
-            return builder;
+
+            return builder
+                .AddEventPublisher<AmazonSnsEventBus>();
         }
     }
 }
