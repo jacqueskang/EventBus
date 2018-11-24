@@ -79,7 +79,7 @@
         {
             builder
                 //.AddInMemoryEventBus() // uncomment to keep using in-memory event bus in the same time
-				.PublishToAmazonSns(x => x.Region = "eu-west-3");
+                .PublishToAmazonSns(x => x.Region = "eu-west-3");
         });
 ```
 
