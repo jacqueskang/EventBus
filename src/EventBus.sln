@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus.Abstractions", "JKang.EventBus.Abstractions\JKang.EventBus.Abstractions.csproj", "{B32C9E22-C892-4F8C-8E49-30CBA5B971C1}"
 EndProject
@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus.Core", "JKan
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus", "JKang.EventBus\JKang.EventBus.csproj", "{36024674-F10A-4A44-BC4E-24EBAA0D0CFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JKang.EventBus.AmazonSns", "JKang.EventBus.AmazonSns\JKang.EventBus.AmazonSns.csproj", "{C46D4B8E-4AAA-4889-A60A-89A9E9E10F50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus.AmazonSns", "JKang.EventBus.AmazonSns\JKang.EventBus.AmazonSns.csproj", "{C46D4B8E-4AAA-4889-A60A-89A9E9E10F50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.EventBus.ConsoleApp", "Samples.EventBus.Console\Samples.EventBus.ConsoleApp.csproj", "{CE18852E-385B-4C84-B023-F4135494BFDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.EventBus.ConsoleApp", "Samples.EventBus.Console\Samples.EventBus.ConsoleApp.csproj", "{CE18852E-385B-4C84-B023-F4135494BFDD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus.AmazonSqs", "JKang.EventBus.AmazonSqs\JKang.EventBus.AmazonSqs.csproj", "{09867E42-1054-4651-A95E-B61B29ABE6EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{CE18852E-385B-4C84-B023-F4135494BFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE18852E-385B-4C84-B023-F4135494BFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE18852E-385B-4C84-B023-F4135494BFDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09867E42-1054-4651-A95E-B61B29ABE6EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09867E42-1054-4651-A95E-B61B29ABE6EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09867E42-1054-4651-A95E-B61B29ABE6EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09867E42-1054-4651-A95E-B61B29ABE6EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

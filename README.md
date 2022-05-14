@@ -3,6 +3,7 @@
 .NET Core event bus implementation supporting:
  * In-memory event dispatching (publishing and subscription)
  * publishing event to Amazon SNS
+ * publishing event to Amazon SQS
 
 ## NuGet packages
 
@@ -87,9 +88,38 @@
 
 ```csharp
     [AmazonSnsTopic("my-event")]
-    public class MyEvent
-    { }
+    public class MyEvent { }
 ```
 
-Any contributions or comments are welcome!
 
+
+## Publish event to Amazon Simple Queue Service (SQS)
+
+1. Install NuGet package [JKang.EventBus.AmazonSqs](https://www.nuget.org/packages/JKang.EventBus.AmazonSqs/)
+
+2. Configure publishing events to AWS SQS
+
+```csharp
+        services.AddEventBus(builder =>
+        {
+            builder
+                //.AddInMemoryEventBus() // uncomment to keep using in-memory event bus in the same time
+                .PublishToAmazonSqs(options =>
+                    {
+                        options.AccessKeyId = "";
+                        options.SecretAccessKey = "";
+                        options.DefaultQueueUrl = "";
+                        options.Region = "us-east-1";
+                    });
+        });
+```
+
+3. Optionally It's possible to customize AWS SQS queue url using annotation
+
+```csharp
+    [AmazonSqsQueue("https://sqs.ap-southeast-2.amazonaws.com/189107071895/youtube-demo")]
+    public class MyEvent { }
+```
+
+
+Any contributions or comments are welcome!
