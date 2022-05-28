@@ -15,10 +15,10 @@
 		<NeutralLanguage>zh-Hans</NeutralLanguage>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<PackageLicenseExpression></PackageLicenseExpression>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<PackageReleaseNotes>Small trial ox knife</PackageReleaseNotes>
+		<PackageReleaseNotes>Delayed execution of event handler</PackageReleaseNotes>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
@@ -27,11 +27,8 @@
 		<PackageReference Include="Microsoft.Extensions.Options" Version="2.1.1" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(Configuration)'=='Debug'">
+	<ItemGroup>
 	  <ProjectReference Include="..\JKang.EventBus.Abstractions\JKang.EventBus.Abstractions.csproj" />
-	</ItemGroup>
-	<ItemGroup Condition="'$(Configuration)'=='Release'">
-		<PackageReference Include="JKang.EventBus.Abstractions" Version="1.1.0"/>
 	</ItemGroup>
 
 	<ItemGroup>

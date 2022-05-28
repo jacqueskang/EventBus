@@ -3,27 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus.Abstractions", "JKang.EventBus.Abstractions\JKang.EventBus.Abstractions.csproj", "{B32C9E22-C892-4F8C-8E49-30CBA5B971C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus.Abstractions", "src\JKang.EventBus.Abstractions\JKang.EventBus.Abstractions.csproj", "{B32C9E22-C892-4F8C-8E49-30CBA5B971C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{8C1896E4-9A8F-4A76-B3D1-CCBB0A2F8037}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.EventBus.AspNetCore", "Samples.EventBus.AspNetCore\Samples.EventBus.AspNetCore.csproj", "{F0688B6D-EEE6-4AA3-BEC3-F73DD1FC0DA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.EventBus.AspNetCore", "src\Samples.EventBus.AspNetCore\Samples.EventBus.AspNetCore.csproj", "{F0688B6D-EEE6-4AA3-BEC3-F73DD1FC0DA0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C9D1DF75-9F6D-4201-AC2C-BA95E3A72C9A}"
 	ProjectSection(SolutionItems) = preProject
-		Directory.Build.props = Directory.Build.props
-		..\README.md = ..\README.md
+		src\Directory.Build.props = src\Directory.Build.props
+		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus.Core", "JKang.EventBus.Core\JKang.EventBus.Core.csproj", "{16EFDC3B-73CD-486C-9BD0-5700AFF8CCB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus.Core", "src\JKang.EventBus.Core\JKang.EventBus.Core.csproj", "{16EFDC3B-73CD-486C-9BD0-5700AFF8CCB4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus", "JKang.EventBus\JKang.EventBus.csproj", "{36024674-F10A-4A44-BC4E-24EBAA0D0CFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus", "src\JKang.EventBus\JKang.EventBus.csproj", "{36024674-F10A-4A44-BC4E-24EBAA0D0CFC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus.AmazonSns", "JKang.EventBus.AmazonSns\JKang.EventBus.AmazonSns.csproj", "{C46D4B8E-4AAA-4889-A60A-89A9E9E10F50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus.AmazonSns", "src\JKang.EventBus.AmazonSns\JKang.EventBus.AmazonSns.csproj", "{C46D4B8E-4AAA-4889-A60A-89A9E9E10F50}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.EventBus.ConsoleApp", "Samples.EventBus.Console\Samples.EventBus.ConsoleApp.csproj", "{CE18852E-385B-4C84-B023-F4135494BFDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.EventBus.ConsoleApp", "src\Samples.EventBus.Console\Samples.EventBus.ConsoleApp.csproj", "{CE18852E-385B-4C84-B023-F4135494BFDD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus.AmazonSqs", "JKang.EventBus.AmazonSqs\JKang.EventBus.AmazonSqs.csproj", "{09867E42-1054-4651-A95E-B61B29ABE6EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JKang.EventBus.AmazonSqs", "src\JKang.EventBus.AmazonSqs\JKang.EventBus.AmazonSqs.csproj", "{09867E42-1054-4651-A95E-B61B29ABE6EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

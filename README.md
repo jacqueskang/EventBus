@@ -4,6 +4,7 @@
  * In-memory event dispatching (publishing and subscription)
  * publishing event to Amazon SNS
  * publishing event to Amazon SQS
+ * delayed execution of event handler
 
 ## NuGet packages
 
@@ -61,11 +62,9 @@
 
 ```csharp
     IServiceProvider serviceProvider = services.BuildServiceProvider();
-    using (IServiceScope scope = serviceProvider.CreateScope())
-    {
-        IEventPublisher eventPublisher = scope.ServiceProvider.GetRequiredService<IEventPublisher>();
-        eventPublisher.PublishEventAsync(new MyEvent { Message = "Hello, event bus!" }).Wait();
-    }
+    using IServiceScope scope = serviceProvider.CreateScope();
+    IEventPublisher eventPublisher = scope.ServiceProvider.GetRequiredService<IEventPublisher>();
+    await eventPublisher.PublishEventAsync(new MyEvent { Message = "Hello, event bus!" }, 3);
 ```
 
 

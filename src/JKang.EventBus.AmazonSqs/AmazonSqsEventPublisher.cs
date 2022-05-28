@@ -20,7 +20,7 @@ namespace JKang.EventBus.AmazonSqs
             _options = options;
         }
 
-        public async Task PublishEventAsync<TEvent>(TEvent @event)
+        public async Task PublishEventAsync<TEvent>(TEvent @event, int delaySeconds = 0)
         {
             var regionEndpoint = RegionEndpoint.GetBySystemName(_options.Value.Region);
             var client = new AmazonSQSClient(_options.Value.AccessKeyId, _options.Value.SecretAccessKey, regionEndpoint);
@@ -38,7 +38,9 @@ namespace JKang.EventBus.AmazonSqs
                 QueueUrl = queueUrl
             };
 
-            var result = await client.SendMessageAsync(request);
+            if (delaySeconds > 0)
+                await Task.Delay(delaySeconds * 1000);
+            var sendMessageResponse = await client.SendMessageAsync(request);
         }
     }
 }
