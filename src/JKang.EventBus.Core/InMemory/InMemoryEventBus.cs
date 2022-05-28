@@ -15,7 +15,7 @@ namespace JKang.EventBus.InMemory
             _serviceProvider = serviceProvider;
         }
 
-        public async Task PublishEventAsync<TEvent>(TEvent @event)
+        public async Task PublishEventAsync<TEvent>(TEvent @event, int delaySeconds = 0)
         {
             using (IServiceScope scope = _serviceProvider.CreateScope())
             {
@@ -23,6 +23,8 @@ namespace JKang.EventBus.InMemory
                 Type openHandlerType = typeof(IEventHandler<>);
                 Type handlerType = openHandlerType.MakeGenericType(eventType);
                 IEnumerable<object> handlers = scope.ServiceProvider.GetServices(handlerType);
+                if (delaySeconds > 0)
+                    await Task.Delay(delaySeconds * 1000);
                 foreach (object handler in handlers)
                 {
                     object result = handlerType

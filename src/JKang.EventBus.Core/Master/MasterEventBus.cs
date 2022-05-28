@@ -14,11 +14,11 @@ namespace JKang.EventBus.MultiChannel
             _eventPublishers = eventPublishers;
         }
 
-        public async Task PublishEventAsync<TEvent>(TEvent @event)
+        public async Task PublishEventAsync<TEvent>(TEvent @event, int delaySeconds = 0)
         {
             foreach (IEventPublisher publisher in _eventPublishers.GetEventPublishers())
             {
-                await publisher.PublishEventAsync(@event);
+                await publisher.PublishEventAsync(@event, delaySeconds);
             }
         }
     }

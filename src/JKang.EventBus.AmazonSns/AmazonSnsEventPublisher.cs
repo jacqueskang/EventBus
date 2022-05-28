@@ -21,7 +21,7 @@ namespace JKang.EventBus.AmazonSns
             _options = options;
         }
 
-        public async Task PublishEventAsync<TEvent>(TEvent @event)
+        public async Task PublishEventAsync<TEvent>(TEvent @event, int delaySeconds = 0)
         {
             var endpoint = RegionEndpoint.GetBySystemName(_options.Value.Region);
             var client = new AmazonSimpleNotificationServiceClient(endpoint);
@@ -40,6 +40,9 @@ namespace JKang.EventBus.AmazonSns
 
             string message = _eventSerializer.Serialize(@event);
             var publishRequest = new PublishRequest(topicArn, message);
+
+            if(delaySeconds > 0)
+                await Task.Delay(delaySeconds * 1000);
             PublishResponse publishResponse = await client.PublishAsync(publishRequest);
         }
     }
